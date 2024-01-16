@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react";
-import Seo from "../components/Seo";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Seo from "../components/Seo";
 
 export default function Home({ results }) {
   const router = useRouter();
@@ -20,7 +19,7 @@ export default function Home({ results }) {
           <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
           <h4>
             <Link href={`/movies/${movie.original_title}/${movie.id}`}>
-              {movie.original_title}
+              <a>{movie.original_title}</a>
             </Link>
           </h4>
         </div>
@@ -52,12 +51,6 @@ export default function Home({ results }) {
     </div>
   );
 }
-
-// server에서만 실행된다.
-// getServerSideProps() function은 object를 return한다.
-// object에는 props라는 key를 가지고 있다.
-// props에 원하는 데이터를 넣을 수 있다.
-// props는 page로 전달된다.
 
 export async function getServerSideProps() {
   const { results } = await (

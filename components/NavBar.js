@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { useRouter } from "next/router";
 
 export default function NavBar() {
@@ -9,10 +8,10 @@ export default function NavBar() {
       <img src="/vercel.svg" />
       <div>
         <Link href="/">
-          <div className={router.pathname === "/" ? "active" : ""}>Home</div>
+          <a className={router.pathname === "/" ? "active" : ""}>Home</a>
         </Link>
         <Link href="/about">
-          <div className={router.pathname === "/about" ? "active" : ""}>About</div>
+          <a className={router.pathname === "/about" ? "active" : ""}>About</a>
         </Link>
       </div>
       <style jsx>{`
